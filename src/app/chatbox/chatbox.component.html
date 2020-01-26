@@ -1,0 +1,103 @@
+<div class="container-fluid">
+  <div class="row top-header">
+    <div class="col-md-6">
+      <div class="col-md-12">
+        <h4 class="user-name"><strong>Souvik Sarkar</strong><span>&nbsp;(you)</span></h4>
+      </div>
+      <div class="col-md-12">
+        <ul class="user-info">
+          <li class="user-description star"><i class="fa fa-star" aria-hidden="true"></i></li>
+          <li class="user-description status"><i class="fa fa-circle"></i> active</li>
+          <li class="user-description User_name">Souvik Sarkar</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-6"></div>
+  </div>
+  <div class="clearfix"></div>
+  <div class="row content">
+    <div class="col-md-8">
+      <div class="col-md-12">
+        <div class="chat_box_head">
+          <div class="user-image">
+            <img src="assets/images/profile.png">
+          </div>
+          <div class="user-info">
+            <h6 class="user-name status">Souvik Sarkar <i class="fa fa-circle"></i></h6>
+            <h6 class="user-name">Souvik Sarkar</h6>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <form action="#">
+          <div class="form-group">
+            <label for="comment">
+              <p>
+                <strong>This is your space</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat.
+              </p>
+            </label>
+
+            <hr>
+            <p class="Day">Today</p>
+
+            <div class="chat_box_head" *ngFor="let chatMessage of chatMessages | keyvalue">
+              <div class="user-image">
+                <img src="assets/images/profile.png">
+              </div>
+              <div class="chat-user-info">
+                <h6 class="user-name">Souvik Sarkar <span class="time">{{showDate(chatMessage.value.dateTime, 'mainThread')}}</span> </h6>
+                <p class="text-note">{{chatMessage.value.message}}</p>
+
+                <div class="chat_box_reply d-none">
+                  <div class="user-image">
+                    <img src="assets/images/profile.png">
+                  </div>
+                  <div class="">
+                    <p><span class="count">1</span> reply <span class="timewithday">Today At 21:25</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <form (ngSubmit)="sendMessage()" ngNativeValidate>
+              <input class="form-control" type="text" name="text" [(ngModel)]="model.message" placeholder="Type your notes here">
+            </form>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-4 Popup_header">
+      <div class="col-md-12">
+        <h4 class="Thread-name"><strong>Thred</strong></h4>
+        <h6 class="user-name"><strong>Souvik Sarkar</strong></h6>
+      </div>
+      <div class="col-md-12">
+        <form action="#">
+          <div class="form-group">
+            <div class="chat_box_head">
+              <div class="user-image">
+                <img src="assets/images/profile.png">
+              </div>
+              <div class="chat-user-info">
+                <h6 class="user-name">Souvik Sarkar <span class="time">Today At 21:25</span> </h6>
+                <p class="text-note">Simple messaging window</p>
+                <div class="chat_box_reply">
+                  <div class="user-image">
+                    <img src="assets/images/profile.png">
+                  </div>
+                  <p>
+                    < 1 minute ago reply</p> </div> </div> <input type="text" placeholder="Type your notes here"
+                      class="form-control" rows="5" id="comment" name="text">
+                      <p class="checkbox"><input type="checkbox" name="tickplease"> Also send as direct message <i
+                          class="fa fa-question-circle" aria-hidden="true"></i></p>
+                      <input type="submit" class="send_btn" name="send" value="Send">
+                </div>
+              </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
