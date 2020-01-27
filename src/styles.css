@@ -1,82 +1,99 @@
 /* You can add global styles to this file, and also import other style files */
+.row.chat-header {
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
+}
+.user-description{
+  display: inline-block;
+}
+.user-info{
+  padding: 0; 
+}
+.user-info li{
+  padding: 0 5px;
+  border-right: 1px solid #eee;
+  color: #bbb;
+}
+.chatbox-userinfo h6.user-name{
+  color: #bbb;
+}
+.user-info li:last-child{
+  border-right: none;
+}
+.user-info li:first-child{
+  padding-left: 0;
+}
+.chatbox-wrapper {
+  position: absolute;
+  width: 100%;
+  display: block;
+  bottom: 5%;
+  padding: 15px;
+}
+.chatbox-avatar {
+  width: 60px;
+}
+.chatbox-avatar img{
+  height: 100%;
+  width: 100%;
+  margin-bottom: 30px;
+}
+.chatbox-welcome-msg{
+  padding-left: 0;
+}
+.chatbox-message p{
+  padding-bottom: 2em;
+}
+.user-info h6{
+  margin-bottom: 0;
+}
+.chatbox-avatar p, 
+.chatbox-avatar span,
+.chat-user-info{
+  display: inline-block;
+}
+.fa-circle{
+  color: green;
+  font-size: 12px;
+}
+.user-name span{
+  color: #bbb;
+  font-weight: 100;
+  font-size: 22px;
+  color: #313131;
+}
 .row.top-header {
-        border-bottom: 1px solid #eee;
-      }
-      .user-description{
-        display: inline-block;
-      }
-      .user-info{
-        padding: 0; 
-      }
-      .user-info li{
-        padding: 0 5px;
-        border-right: 1px solid #eee;
-      }
-      .user-info li:last-child{
-        border-right: none;
-      }
-      .row.content{
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-      }
-      .row.content .col-md-12{
-          border-right: 1px solid #ccc;
-      }
-      .row.content .Popup_header .col-md-12{
-          border-right: 0px solid #ccc;
-      }
-      .Popup_header .col-md-12:first-child{
-        background-color: #f8f8f8;
-        padding: 20px;
-      }
-      .user-image {
-        width: 60px;
-        float: left;
-        display: block;
-      }
-      .user-image img{
-        height: 100%;
-        width: 100%;
-        margin-bottom: 30px;
-      }
-      .form-group input.form-control{
-        height: 120px;
-        top: 0;
-      }
-      .user-info h6{
-        margin-bottom: 0;
-      }
-      .Day {
-        text-align: center;
-        background: #fff;
-        max-width: 4%;
-        margin: -30px auto 30px;
-      }
-      .user-image p, .user-image span{
-        display: inline-block;
-      }
-      .chat-user-info{
-        display: block;margin-bottom: 30px;
-      }
-      .Popup_header .chat-user-info{
-        display: block;
-        margin: 30px 0;
-      }
-      .checkbox{
-        margin-top: 20px;
-        float: left;
-      }
-      .send_btn{
-        float: right;
-        margin: 20px;
-      }
-      .fa-circle{
-        color: green;
-        font-size: 8px;
-      }
-      .content .col-md-8,
-      .col-md-4.Popup_header{
-        margin: 0;
-        padding: 0;
-      }
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
+}
+.user-name{
+  padding: 0;
+  margin: 0;
+}
+ul.user-info{
+  margin-bottom: 0;
+}
+.fa-user{
+  color: #f2c744;
+  font-size: 65px;
+}
+.chatday {
+  text-align: center;
+  margin-top: -32px;
+  margin-bottom: 40px;
+}
+.chatday span{
+  background-color: #fff;
+  padding: 10px;
+}
+.chat-form input{
+  height: 100px;
+}
+.chatbox-username,.chatbox-avatar {
+  display: inline-block;
+}
+.user-name span.time {
+  font-size: 12px;
+  color: #bbb;
+  font-weight: 500;
+}
