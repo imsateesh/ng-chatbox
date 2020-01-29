@@ -1,7 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+p,h4,h5,h6{
+  margin: 0;
+  padding: 0;
+}
 .row.chat-header {
   border-bottom: 1px solid #eee;
   padding: 10px 0;
+  /*position: fixed;
+  display: block;
+  width: 100%;*/
 }
 .user-description{
   display: inline-block;
@@ -14,7 +21,7 @@
   border-right: 1px solid #eee;
   color: #bbb;
 }
-.chatbox-userinfo h6.user-name{
+.chatbox-userinfo .user-name,.thread-info .thread-user{
   color: #bbb;
 }
 .user-info li:last-child{
@@ -23,17 +30,14 @@
 .user-info li:first-child{
   padding-left: 0;
 }
-.chatbox-wrapper {
-  position: absolute;
-  width: 100%;
-  display: block;
-  bottom: 5%;
-  padding: 15px;
+.chatbox-inner {
+  height: 200px;
+  overflow-y: scroll;
 }
-.chatbox-avatar {
+.chatbox-avatar,.threadbox-avatar {
   width: 60px;
 }
-.chatbox-avatar img{
+.chatbox-avatar img,.threadbox-avatar img{
   height: 100%;
   width: 100%;
   margin-bottom: 30px;
@@ -44,11 +48,8 @@
 .chatbox-message p{
   padding-bottom: 2em;
 }
-.user-info h6{
-  margin-bottom: 0;
-}
-.chatbox-avatar p, 
-.chatbox-avatar span,
+.chatbox-avatar p,.threadbox-avatar p, 
+.chatbox-avatar span,.threadbox-avatar span,
 .chat-user-info{
   display: inline-block;
 }
@@ -66,7 +67,7 @@
   border-bottom: 1px solid #eee;
   padding: 10px 0;
 }
-.user-name{
+.user-name,.thread-name{
   padding: 0;
   margin: 0;
 }
@@ -86,14 +87,67 @@ ul.user-info{
   background-color: #fff;
   padding: 10px;
 }
-.chat-form input{
+.chat-form input,input#Note_message{
   height: 100px;
 }
-.chatbox-username,.chatbox-avatar {
+.chatbox-username,.chatbox-avatar,.threadbox-avatar,.thread-userinfo,p.agotime,.thread_box_reply {
   display: inline-block;
+  vertical-align: middle;
 }
 .user-name span.time {
   font-size: 12px;
   color: #bbb;
   font-weight: 500;
+}
+.thread-wrapper{
+  border-left: 1px solid #ccc;
+  padding: 0;
+}
+.thread_box_reply_inner {
+  height: calc(100vh - 273px);
+  overflow-y: scroll;
+}
+.thread-info {
+  background-color: #eeeeee4f;
+  padding: 5px 15px;
+}
+.thread_box_head {
+    padding: 12px;
+}
+.thread-userinfo .time {
+    font-size: 12px;
+    color: #313131;
+    opacity: 0.8;
+}
+p.reply{
+  font-size: 14px;
+  opacity: 0.6;
+  background-color: #fff;
+}
+.chatuser-separator {
+    margin-top: -26px;
+    margin-left: 50px;
+}
+.chat-messagebox .chat-user-info{
+  vertical-align: middle;
+}
+.chat-messagebox {
+  position: relative;
+}
+.revert-action ul.chat-action {
+  padding: 0;
+  display: inline-block;
+  position: absolute;
+  right: 10px;
+  border: 1px solid #ccc;
+  margin: 5px;
+  border-radius: 4px;
+  top: 0;
+}
+.revert-action ul.chat-action li {
+  display: inline-block;
+  padding: 0 5px;
+}
+.user-name.status{
+  color: #313131;
 }

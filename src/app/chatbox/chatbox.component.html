@@ -11,35 +11,86 @@
   </div>
 
   <div class="row chatbox-wrapper">
-    <div class="message-body">
-      <div class="col-md-12 chatbox-welcome-msg">
-        <div class="chatbox-userinfo">
-          <div class="chatbox-avatar"><i class="fa fa-user" aria-hidden="true"></i></div>
-          <div class="chatbox-username">
-            <h5 class="user-name status">Souvik Sarkar <i class="fa fa-circle"></i></h5>
-            <h6 class="user-name">Souvik Sarkar</h6>
+    <div class="{{threadID.length > 0 ? 'col-md-8' : 'col-md-12'}}">
+      <div class="chatbox-inner">
+        <div class="message-body">
+          <div class="col-md-12 chatbox-welcome-msg">
+            <div class="chatbox-userinfo">
+              <div class="chatbox-avatar"><i class="fa fa-user" aria-hidden="true"></i></div>
+              <div class="chatbox-username">
+                <h5 class="user-name status">Souvik Sarkar <i class="fa fa-circle"></i></h5>
+                <h6 class="user-name">Souvik Sarkar</h6>
+              </div>
+            </div>
+            <div class="chatbox-message">
+              <p><strong>This is your space.</strong> Draft messages, make to-do lists or keep links and files to hand.
+                You can also talk to yourself here, but please bear in mind you'll have to provide both sides of the
+                conversation. Make note of something.</p>
+            </div>
           </div>
         </div>
-        <div class="chatbox-message">
-          <p><strong>This is your space.</strong> Draft messages, make to-do lists or keep links and files to hand. You can also talk to yourself here, but please bear in mind you'll have to provide both sides of the conversation. Make note of something.</p>
+
+        <div class="chatbox-dayseparator">
+          <hr>
+        </div>
+        <div class="chatday"><span>Today</span></div>
+
+        <div class="chat-messagebox" *ngFor="let chatMessage of chatMessages | keyvalue">
+          <div class="chatbox-avatar"><i class="fa fa-user" aria-hidden="true"></i></div>
+          <div class="chat-user-info">
+            <h6 class="user-name">Souvik Sarkar <span
+                class="time">{{showDate(chatMessage.value.dateTime, 'mainThread')}}</span> </h6>
+            <p class="text-note">{{chatMessage.value.message}}</p>
+            <p *ngIf="chatMessage.value.hasOwnProperty('replies')"><small>{{chatMessage.value.replies.length}}
+                replies</small></p>
+          </div>
+          <div class="revert-action">
+            <ul class="chat-action">
+              <li><a href="javascript:void(0);"><i class="fa fa-smile-o" aria-hidden="true"></i></a> </li>
+              <li><a href="javascript:void(0);" (click)="openChatReply(chatMessage.key)"><i class="fa fa-commenting-o"
+                    aria-hidden="true"></i></a> </li>
+              <li><a href="javascript:void(0);"><i class="fa fa-star-o" aria-hidden="true"></i></a> </li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="chatbox-dayseparator"><hr></div>
-    <div class="chatday"><span>Today</span></div>
-
-    <div class="chat-messagebox" *ngFor="let chatMessage of chatMessages | keyvalue">
-      <div class="chatbox-avatar"><i class="fa fa-user" aria-hidden="true"></i></div>
-      <div class="chat-user-info">
-        <h6 class="user-name">Souvik Sarkar <span class="time">{{showDate(chatMessage.value.dateTime, 'mainThread')}}</span> </h6>
-        <p class="text-note">{{chatMessage.value.message}}</p>
+      <div id="main-chat-form" class="chat-form pt-2 pb-2">
+        <form (ngSubmit)="sendMessage()" ngNativeValidate>
+          <input class="form-control" type="text" name="text" [(ngModel)]="model.message"
+            placeholder="Type your notes here" required>
+        </form>
       </div>
     </div>
-    <div class="chat-form">
-      <form (ngSubmit)="sendMessage()" ngNativeValidate>
-        <input class="form-control" type="text" name="text" [(ngModel)]="model.message" placeholder="Type your notes here">
-      </form>
+
+    <div class="col-md-4 thread-wrapper" *ngIf="threadID.length > 0">
+      <div class="thread-info">
+        <h5 class="thread-name">
+          <strong>Thred</strong>
+          <button type="button" class="close pull-right" aria-label="Close" (click)="closeChatReply()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </h5>
+        <p class="thread-user"><strong>Souvik Sarkar</strong></p>
+      </div>
+
+      <hr>
+
+      <div class="thread_box_reply_inner pl-2 pr-2">
+        <div class="thread_box_reply w-100" *ngFor="let chatThreadMessage of chatThreadMessages">
+          <div class="threadbox-avatar">
+            <i class="fa fa-user" aria-hidden="true"></i>
+          </div>
+          <p class="agotime">{{chatThreadMessage.message}} - {{showDate(chatThreadMessage.dateTime, 'mainThread')}}</p>
+        </div>
+      </div>
+
+      <div class="chat-form pl-2 pr-2 pt-2 pb-2">
+        <form (ngSubmit)="postReply()" ngNativeValidate>
+          <input class="form-control" type="text" name="text" [(ngModel)]="model.replyMessage" placeholder="Reply..."
+            required>
+        </form>
+      </div>
     </div>
-  </div> 
+  </div>
 </div>
